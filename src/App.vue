@@ -1,9 +1,8 @@
 <template>
   <div>
-    <nav-bar :your-text="'test'" :heading="'Posts'"></nav-bar>
+    <nav-bar :your-text="'Share'" :heading="'Posts'"></nav-bar>
     <div>
-      <the-button :button-text="'abc'" :bg="`black`" :color="`neutral-500`">
-      </the-button>
+      <base-button :edit-del="'Edit'"></base-button>
     </div>
   </div>
 </template>

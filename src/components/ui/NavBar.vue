@@ -4,7 +4,7 @@
   >
     <div class="text-xl font-medium w-32 h-10 leading-10">{{ heading }}</div>
     <div class="ml-auto">
-      <the-button :button-text="yourText" :bg="`neutral-500`"></the-button>
+      <the-button :button-text="yourText" :bg="`red`"></the-button>
     </div>
   </nav>
 </template>
