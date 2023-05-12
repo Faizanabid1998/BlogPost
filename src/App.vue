@@ -1,13 +1,16 @@
 <template>
   <div>
-    <nav-bar :your-text="'Share'" :heading="'Posts'"></nav-bar>
-    <div>
-      <base-button :edit-del="'Edit'"></base-button>
-    </div>
+ <all-posts></all-posts>
+
   </div>
 </template>
 
 
 <script>
-export default {};
+import AllPosts from './components/pages/AllPosts.vue';
+export default {
+components:{
+  AllPosts
+}
+};
 </script>

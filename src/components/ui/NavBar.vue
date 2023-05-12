@@ -1,8 +1,8 @@
 <template>
   <nav
-    class="container flex flex-row mx-auto items-center justify-between mt-3"
+    class="mx-3 flex flex-row  items-center justify-between mt-5"
   >
-    <div class="text-xl font-medium w-32 h-10 leading-10">{{ heading }}</div>
+    <div class="text-3xl font-bold w-36 h-10 leading-10">{{ heading }}</div>
     <div class="ml-auto">
       <the-button :button-text="yourText" :bg="`red`"></the-button>
     </div>
