@@ -1,30 +1,16 @@
 <template>
   <div class="   ">
-    <div class="container mx-auto my-auto flex flex-col">
-      <div>
-        <img class="w-auto h-auto" src="../../images/Image.svg" alt="" />
-        <div class="container">
-          <h1 class="font-bold text-2xl mt-2 w-80 h-20">
-            {{ title }}
-          </h1>
+    <div
+      id="card"
+      class="mx-auto my-auto flex flex-col gap-5 w-[320px] h-[428px]"
+    >
+      <img class="w-auto h-auto" src="../../images/Image.svg" alt="" />
+      <div class="flex flex-col items-start gap-2 w-[320px] h-52 self-stretch">
+        <div class="font-bold text-2xl leading-10 w-[320px] h-20">
+          {{ title }}
         </div>
-      </div>
-
-      <br />
-      <div>
-        <div>
-          <h2 for="date">{{ date }}</h2>
-        </div>
-        <div>
-          <h1></h1>
-          <h2 for="author">{{ author }}</h2>
-        </div>
-        <div>
-          <h2 for="category">{{ category }}</h2>
-        </div>
-        <div class="text-sm">
-          <h2 for="category">{{ description }}</h2>
-        </div>
+        <br />
+        <div class="font-normal text-sm w-[320px] h-32">{{ description }}</div>
       </div>
     </div>
   </div>

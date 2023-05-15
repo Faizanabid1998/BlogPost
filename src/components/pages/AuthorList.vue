@@ -1,17 +1,17 @@
 <template>
-  <div class="font-bold text-2xl leading-10 py-3 px-5">
+  <div class="font-bold text-2xl leading-10 py-3 px-14">
     <h1>Blog</h1>
   </div>
 
   <div
     title="card"
-    class="container mx-auto grid grid-cols-2 gap-20 w-2/4 items-start"
+    class="container grid grid-cols-2 items-start mx-auto gap-5"
   >
     <the-post
       v-for="blog in blogs"
       :key="blog.id"
       :title="blog.title"
-      :description="blog.description"
+      :description="limitedDescription(blog.description)"
     >
     </the-post>
   </div>
@@ -26,7 +26,12 @@ export default {
     const blogs = computed(function () {
       return store.getters.blog;
     });
-    return { blogs };
+    const limitedDescription = (description) => {
+      const limit = 40;
+      const words = description.split(' ');
+      return words.slice(0, limit).join(' ') + '...';
+    };
+    return { blogs,limitedDescription  };
   },
 };
 </script>

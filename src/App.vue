@@ -1,16 +1,5 @@
 <template>
-  <div>
- <all-posts></all-posts>
-
-  </div>
+ <router-view></router-view>
 </template>
 
 
-<script>
-import AllPosts from './components/pages/AllPosts.vue';
-export default {
-components:{
-  AllPosts
-}
-};
-</script>

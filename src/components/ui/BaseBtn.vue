@@ -11,7 +11,7 @@
 </template>
   
   
-      <script>
+<script>
 export default {
   props: ["editDel"],
 };

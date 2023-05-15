@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar yourText="Create Blog" heading="All Posts"></nav-bar>
-    <div class="">
+    <div>
       <the-blog
         class="my-4 mx-3"
         v-for="blog in blogs"
