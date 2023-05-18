@@ -22,18 +22,23 @@
         id="buttons"
         class="flex flex-col justify-between gap-5 h-32 w-24 flex-grow-0 ml-auto"
       >
-        <base-button editDel="Edit"></base-button>
-        <base-button editDel="Delete"></base-button>
+        <base-button editDel="Edit" @click="editBlog"></base-button>
+        <base-button editDel="Delete" @click="deleteBlog"></base-button>
       </div>
     </div>
   </div>
 </template>
 <script>
-// import { ref } from "vue";
 export default {
   props: ["title", "date", "author", "category", "description"],
-  // setup() {
-
-  // },
+  setup(_, { emit }) {
+    const editBlog = () => {
+      emit("edit-blog");
+    };
+    const deleteBlog = () => {
+      emit("delete-blog");
+    };
+    return { editBlog, deleteBlog };
+  },
 };
 </script>

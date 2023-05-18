@@ -1,11 +1,11 @@
 <template>
   <div>
     <header class="flex flex-row justify-between px-5 py-3 items-center">
-      <base-button editDel="Back" @click="goBackBtn"></base-button>
+      <base-button editDel="Back" @click="exit"></base-button>
       <h1 class="font-bold text-3xl leading-10">Add/Edit Post</h1>
       <img
         class="hover cursor-pointer"
-        @click="exit"
+        @click="goBackBtn"
         src="../../images/Button.svg"
         alt=""
       />
@@ -56,9 +56,9 @@
     </form>
   </div>
 </template>
-
-<script>
-import { ref } from "vue";
+  
+  <script>
+import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
 
@@ -82,19 +82,14 @@ export default {
         return alert("Some of the fields are not filled correctly!");
       } else {
         saveData();
-        title.value="",
-        description.value="",
-        author.value="",
-        category.value=""
-        alert("Saved Successfully.");
-        // router.replace("/posts");
       }
+      router.replace("/posts");
     };
     const goBackBtn = () => {
-      router.push("/posts");
+      router.replace("/posts");
     };
     const exit = () => {
-      router.push("/");
+      router.replace("/");
     };
     async function saveData() {
       const newBlog = {
@@ -110,8 +105,9 @@ export default {
       };
 
       try {
-        const response = await axios.post(
-          "https://blog-app-8cfe3-default-rtdb.firebaseio.com/blogs.json",
+        const blogId = router.currentRoute.value.params.id;
+        const response = await axios.put(
+          `https://blog-app-8cfe3-default-rtdb.firebaseio.com/blogs/${blogId}.json`,
           newBlog
         );
 
@@ -123,6 +119,22 @@ export default {
         console.error(error);
       }
     }
+    onMounted(() => {
+      const blogId = router.currentRoute.value.params.id;
+      axios
+        .get(
+          `https://blog-app-8cfe3-default-rtdb.firebaseio.com/blogs/${blogId}.json`
+        )
+        .then((response) => {
+          title.value = response.data.title;
+          description.value = response.data.description;
+          author.value = response.data.author;
+          category.value = response.data.category;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
 
     return {
       title,
@@ -137,3 +149,4 @@ export default {
   },
 };
 </script>
+  

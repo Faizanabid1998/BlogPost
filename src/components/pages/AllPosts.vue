@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav-bar yourText="Create Blog" heading="All Posts"></nav-bar>
-    <div>
+    <nav-bar yourText="Create Blog" heading="All Posts" route="/add"></nav-bar>
+    <div v-if="blogs.length > 0">
       <the-blog
         class="my-4 mx-3"
         v-for="blog in blogs"
@@ -10,21 +10,53 @@
         :date="blog.date"
         :author="blog.author"
         :category="blog.category"
+        @edit-blog="handleEdit(blog.id)"
+        @delete-blog="handleDelete(blog.id)"
         >>
       </the-blog>
     </div>
   </div>
 </template>
 <script>
-import { useStore } from "vuex";
-import { computed } from "vue";
+import { ref, onMounted } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
 export default {
   setup() {
-    const store = useStore();
-    const blogs = computed(function () {
-      return store.getters.blog;
+    const blogs = ref([]);
+    const router = useRouter();
+    const handleEdit = (blogId) => {
+      router.push(`/edit/${blogId}`);
+    };
+    const handleDelete = (blogId) => {
+      const deletingMessage = alert("Deleting blog...");
+      axios
+        .delete(
+          `https://blog-app-8cfe3-default-rtdb.firebaseio.com/blogs/${blogId}.json`
+        )
+        .then(() => {
+          blogs.value = blogs.value.filter((blog) => blog.id !== blogId);
+          deletingMessage.close();
+          alert("Blog deleted successfully!");
+        })
+
+        .catch((error) => {
+          console.error("Error deleting blog: ", error);
+        });
+    };
+    onMounted(() => {
+      axios
+        .get("https://blog-app-8cfe3-default-rtdb.firebaseio.com/blogs.json")
+        .then((response) => {
+          console.log(response.data);
+          const data = response.data;
+          blogs.value = Object.keys(data).map((id) => ({ id, ...data[id] }));
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     });
-    return { blogs };
+    return { blogs, handleEdit, handleDelete };
   },
 };
 </script>

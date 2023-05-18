@@ -1,9 +1,6 @@
 <template>
   <div class="   ">
-    <div
-      id="card"
-      class="mx-auto my-auto flex flex-col gap-5 w-[320px] h-[428px]"
-    >
+    <div id="card" class="flex flex-col gap-5 w-[320px] h-[428px] items-start">
       <img class="w-auto h-auto" src="../../images/Image.svg" alt="" />
       <div class="flex flex-col items-start gap-2 w-[320px] h-52 self-stretch">
         <div class="font-bold text-2xl leading-10 w-[320px] h-20">
