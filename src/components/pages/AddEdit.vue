@@ -82,10 +82,10 @@ export default {
         return alert("Some of the fields are not filled correctly!");
       } else {
         saveData();
-        title.value="",
-        description.value="",
-        author.value="",
-        category.value=""
+        (title.value = ""),
+          (description.value = ""),
+          (author.value = ""),
+          (category.value = "");
         alert("Saved Successfully.");
         // router.replace("/posts");
       }
@@ -132,7 +132,7 @@ export default {
       saveData,
       submitForm,
       goBackBtn,
-      exit
+      exit,
     };
   },
 };

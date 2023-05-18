@@ -1,11 +1,11 @@
 <template>
   <div>
     <header class="flex flex-row justify-between px-5 py-3 items-center">
-      <base-button editDel="Back" @click="exit"></base-button>
+      <base-button editDel="Back" @click="goBackBtn"></base-button>
       <h1 class="font-bold text-3xl leading-10">Add/Edit Post</h1>
       <img
         class="hover cursor-pointer"
-        @click="goBackBtn"
+        @click="exit"
         src="../../images/Button.svg"
         alt=""
       />
@@ -144,7 +144,7 @@ export default {
       saveData,
       submitForm,
       goBackBtn,
-      exit
+      exit,
     };
   },
 };

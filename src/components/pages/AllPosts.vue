@@ -50,7 +50,8 @@ export default {
         .then((response) => {
           console.log(response.data);
           const data = response.data;
-          blogs.value = Object.keys(data).map((id) => ({ id, ...data[id] }));
+          const fetchedBlogs = Object.keys(data).map((id) => ({ id, ...data[id] }));
+          blogs.value = fetchedBlogs.reverse();
         })
         .catch((error) => {
           console.error(error);
