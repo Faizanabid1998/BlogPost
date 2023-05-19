@@ -1,18 +1,41 @@
 <template>
-  <router-link :to="route" >
+
     <button
-      :class="`flex flex-row items-center w-44 h-11 bg-neutral-500 rounded-md justify-center py-3 px-5 hover:bg-slate-600 `"
+      :class="`flex flex-row items-center ${btnWidth} h-11 ${bgClass} rounded-[4px] justify-center py-3 px-5 hover:bg-slate-400 ${borderColor} border-2 `"
     >
-      <div :class="`w-32 h-6 leading-6  font-medium text-white`">
+      <div :class="`w-32 h-6 leading-6  font-medium ${textClass}`">
         {{ buttonText }}
       </div>
     </button>
-  </router-link>
+
 </template>
 
 
     <script>
 export default {
-  props: ["buttonText","route"],
+  props: {
+    buttonText: {
+      type: String,
+      required: true,
+    },
+
+    bgClass: {
+      type: String,
+      default: "bg-neutral-500",
+    },
+    textClass: {
+      type: String,
+      default: "text-white",
+    },
+    borderColor: {
+      type: String,
+      default: "border-neutral-500",
+    },
+    btnWidth: {
+      type: String,
+      default: "w-32",
+    },
+  },
+  
 };
 </script>

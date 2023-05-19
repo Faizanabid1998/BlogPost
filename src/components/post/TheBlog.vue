@@ -1,8 +1,8 @@
 <template>
-  <div class="px-7 gap-16">
+  <div class="mb-4 flex items-center">
     <div
       id="card"
-      class="flex flex-row items-start justify-center gap-5 w-full h-32 pl-8"
+      class="flex flex-row items-start justify-between gap-5 w-[760px] h-32 pt-3"
     >
       <img class="w-52 h-32" src="../../images/Image.svg" alt="" />
       <div
@@ -11,16 +11,22 @@
       >
         {{ title }}
         <div
-          class="flex flex-row items-start gap-2 text-sm font-normal h-5 w-[418px]"
+          class="flex flex-row items-start gap-2 text-sm font-normal h-5 w-[418px] self-stretch"
         >
+        <div>
           <h1>Author:&nbsp;{{ author }}</h1>
+        </div>  
+        <div>
           <h1>Date:&nbsp;{{ date }}</h1>
+        </div>
+        <div>
           <h1>Category:&nbsp;{{ category }}</h1>
+        </div>
         </div>
       </div>
       <div
         id="buttons"
-        class="flex flex-col justify-between gap-5 h-32 w-24 flex-grow-0 ml-auto"
+        class="flex flex-col justify-between gap-5 h-32 w-24 flex-grow-0 "
       >
         <base-button editDel="Edit" @click="editBlog"></base-button>
         <base-button editDel="Delete" @click="deleteBlog"></base-button>

@@ -1,19 +1,39 @@
 <template>
-  <div>
-    <nav-bar yourText="Create Blog" heading="All Posts" route="/add"></nav-bar>
-    <div v-if="blogs.length > 0">
-      <the-blog
-        class="my-4 mx-3"
-        v-for="blog in blogs"
-        :key="blog.id"
-        :title="blog.title"
-        :date="blog.date"
-        :author="blog.author"
-        :category="blog.category"
-        @edit-blog="handleEdit(blog.id)"
-        @delete-blog="handleDelete(blog.id)"
-        >>
-      </the-blog>
+  <div class="w-[1440px] h-auto relative backdrop-blur-md">
+    <div
+      class="w-[1440px] h-auto flex flex-col items-center py-5 px-72 gap-5 absolute bg-neutral-100"
+    >
+      <div
+        class="flex flex-col items-center px-3 pt-5 pb-12 bg-white w-[840px] h-[1542px]"
+      >
+        <div
+          id="header"
+          class="flex flex-row items-center justify-between px-5 py-3 w-[820px] h-14"
+        >
+          <div id="heading" class="font-bold text-3xl leading-10">
+            All Posts
+          </div>
+          <the-button
+            @click="add"
+            btnWidth=" w-44"
+            buttonText="Create Blog"
+            bgClass="bg-neutral-500"
+          ></the-button>
+        </div>
+        <div v-if="blogs.length > 0">
+          <the-blog
+            v-for="blog in blogs"
+            :key="blog.id"
+            :title="blog.title"
+            :date="blog.date"
+            :author="blog.author"
+            :category="blog.category"
+            @edit-blog="handleEdit(blog.id)"
+            @delete-blog="handleDelete(blog.id)"
+            >>
+          </the-blog>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +45,9 @@ export default {
   setup() {
     const blogs = ref([]);
     const router = useRouter();
+    const add = () => {
+      router.replace("/add");
+    };
     const handleEdit = (blogId) => {
       router.push(`/edit/${blogId}`);
     };
@@ -50,14 +73,17 @@ export default {
         .then((response) => {
           console.log(response.data);
           const data = response.data;
-          const fetchedBlogs = Object.keys(data).map((id) => ({ id, ...data[id] }));
+          const fetchedBlogs = Object.keys(data).map((id) => ({
+            id,
+            ...data[id],
+          }));
           blogs.value = fetchedBlogs.reverse();
         })
         .catch((error) => {
           console.error(error);
         });
     });
-    return { blogs, handleEdit, handleDelete };
+    return { blogs, handleEdit, handleDelete, add };
   },
 };
 </script>

@@ -9,11 +9,11 @@
           {{ title }}
         </div>
         <div
-          class="flex flex-col py-3 gap-3 w-[720px] h-24 font-normal text-base leading-5"
+          class="flex flex-col py-3 gap-3 w-[720px] h-24 "
         >
-          <div>Date:&nbsp;{{ date }}</div>
-          <div>Author:&nbsp;{{ author }}</div>
-          <div>Categroy:&nbsp;{{ category }}</div>
+          <div class="font-normal text-base leading-5">Date:&nbsp;{{ date }}</div>
+          <div class="font-normal text-base leading-5">Author:&nbsp;{{ author }}</div>
+          <div class="font-normal text-base leading-5">Categroy:&nbsp;{{ category }}</div>
         </div>
         <div
           id="desc"

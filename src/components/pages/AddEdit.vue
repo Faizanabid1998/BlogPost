@@ -1,59 +1,83 @@
 <template>
-  <div>
-    <header class="flex flex-row justify-between px-5 py-3 items-center">
-      <base-button editDel="Back" @click="goBackBtn"></base-button>
-      <h1 class="font-bold text-3xl leading-10">Add/Edit Post</h1>
-      <img
-        class="hover cursor-pointer"
-        @click="exit"
-        src="../../images/Button.svg"
-        alt=""
-      />
-    </header>
-
-    <form class="flex flex-col items-center w-[820px] h-[576px] mx-auto">
-      <div class="flex flex-col items-start gap-3">
-        <h1 class="font-normal text-xl leading-6">Title</h1>
-        <input
-          class="py-3 px-5 gap-3 w-[620px] h-11 box-border bg-white border border-gray-300 rounded-md"
-          type="text"
-          placeholder="Enter your Title here"
-          v-model.trim="title"
-        />
-      </div>
+  <div class="w-[1440px] h-[1024px] relative backdrop-blur-md">
+    <div
+      class="w-[1440px] h-[1024px] flex flex-col items-center py-5 px-72 gap-5 absolute bg-neutral-100"
+    >
       <div
-        id="frame2"
-        class="flex flex-row items-start gap-5 w-[620px] h-20 mt-3"
+        class="flex flex-col items-center px-3 pt-5 pb-12 bg-white w-[840px] h-[1542px]"
       >
-        <div id="field" class="flex flex-col items-start gap-3">
-          <h1 class="font-normal text-xl leading-6">Author</h1>
-          <input
-            class="py-3 px-5 gap-3 w-[300px] h-11 box-border bg-white border border-gray-300 rounded-md"
-            type="text"
-            placeholder="Enter the Author here"
-            v-model.trim="author"
-          />
-        </div>
-        <div id="field" class="flex flex-col items-start gap-3">
-          <h1 class="font-normal text-xl leading-6">Category</h1>
-          <input
-            class="py-3 px-5 gap-3 w-[300px] h-11 box-border bg-white border border-gray-300 rounded-md"
-            type="text"
-            placeholder="Enter your Category here"
-            v-model.trim="category"
-          />
+        <header
+          class="flex flex-row items-center justify-between px-5 py-3 w-[820px] h-14"
+        >
+          <h1 class="font-bold text-3xl leading-10 flex-grow text-center">
+            Add Post
+          </h1>
+        </header>
+
+        <form class="flex flex-col items-center w-[820px] h-[576px] mx-auto">
+          <div class="flex flex-col items-start gap-3">
+            <h1 class="font-normal text-xl leading-6">Title</h1>
+            <input
+              class="py-3 px-5 gap-3 w-[620px] h-11 box-border bg-white border border-gray-300 rounded-md"
+              type="text"
+              placeholder="Enter your Title here"
+              v-model.trim="title"
+            />
+          </div>
+          <div
+            id="frame2"
+            class="flex flex-row items-start gap-5 w-[620px] h-20 mt-3"
+          >
+            <div id="field" class="flex flex-col items-start gap-3">
+              <h1 class="font-normal text-xl leading-6">Author</h1>
+              <input
+                class="py-3 px-5 gap-3 w-[300px] h-11 box-border bg-white border border-gray-300 rounded-md"
+                type="text"
+                placeholder="Enter the Author here"
+                v-model.trim="author"
+              />
+            </div>
+            <div id="field" class="flex flex-col items-start gap-3">
+              <h1 class="font-normal text-xl leading-6">Category</h1>
+              <input
+                class="py-3 px-5 gap-3 w-[300px] h-11 box-border bg-white border border-gray-300 rounded-md"
+                type="text"
+                placeholder="Enter your Category here"
+                v-model.trim="category"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col items-start gap-3 mt-3">
+            <h1 class="font-normal text-xl leading-6">Description</h1>
+            <textarea
+              class="py-3 px-5 gap-3 w-[620px] h-[317px] box-border bg-white border border-gray-300 rounded-md"
+              placeholder="Enter your Description here"
+              v-model.trim="description"
+            ></textarea>
+          </div>
+        </form>
+        <div
+          class="w-[820px] h-11 flex flex-row justify-between items-start gap-7 px-24"
+        >
+          <div>
+            <the-button
+              @click="exit"
+              buttonText="Cancel"
+              bgClass="bg-neutral-500"
+            ></the-button>
+          </div>
+          <div>
+            <the-button
+              buttonText="Save"
+              textClass="text-neutral-500"
+              bgClass="bg-white"
+              borderColor="border-neutral-500"
+              @click="submitForm"
+            ></the-button>
+          </div>
         </div>
       </div>
-      <div class="flex flex-col items-start gap-3 mt-3">
-        <h1 class="font-normal text-xl leading-6">Description</h1>
-        <textarea
-          class="py-3 px-5 gap-3 w-[620px] h-[317px] box-border bg-white border border-gray-300 rounded-md"
-          placeholder="Enter your Description here"
-          v-model.trim="description"
-        ></textarea>
-      </div>
-      <back-button class="mt-5" back="Save" @click="submitForm"></back-button>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -90,11 +114,9 @@ export default {
         // router.replace("/posts");
       }
     };
-    const goBackBtn = () => {
-      router.push("/posts");
-    };
+
     const exit = () => {
-      router.push("/");
+      router.push("/posts");
     };
     async function saveData() {
       const newBlog = {
@@ -131,7 +153,6 @@ export default {
       category,
       saveData,
       submitForm,
-      goBackBtn,
       exit,
     };
   },
