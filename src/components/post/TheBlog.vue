@@ -1,17 +1,17 @@
 <template>
-  <div class="mb-4 flex items-center">
+  <div class="mb-4 flex flex-col items-center">
     <div
       id="card"
-      class="flex flex-row items-start justify-between gap-5 w-[760px] h-32 pt-3"
+      class="flex sm:flex-row flex-col items-start justify-between gap-5 sm:w-[760px] w-[300px] sm:h-32 h[394px] pt-3"
     >
-      <img class="w-52 h-32" src="../../images/Image.svg" alt="" />
+      <img class="sm:w-52 w-72  sm:h-32 h-44" :src="image" alt="" />
       <div
         id="frame"
-        class="flex flex-col justify-between items-start gap-5 w-[418px] h-32"
+        class="flex flex-col justify-between items-start gap-5 sm:w-[418px] w-72 sm:h-32 h-36"
       >
         {{ title }}
         <div
-          class="flex flex-row items-start gap-2 text-sm font-normal h-5 w-[418px] self-stretch"
+          class="flex sm:flex-row flex-col items-start sm:gap-2 gap-3 text-sm font-normal sm:h-5 h-32 sm:w-[418px] w-72 self-stretch"
         >
         <div>
           <h1>Author:&nbsp;{{ author }}</h1>
@@ -26,7 +26,7 @@
       </div>
       <div
         id="buttons"
-        class="flex flex-col justify-between gap-5 h-32 w-24 flex-grow-0 "
+        class="flex sm:flex-col flex-row justify-between gap-5 sm:h-32 h-11 sm:w-24 w-72 flex-grow-0 "
       >
         <base-button editDel="Edit" @click="editBlog"></base-button>
         <base-button editDel="Delete" @click="deleteBlog"></base-button>
@@ -36,7 +36,7 @@
 </template>
 <script>
 export default {
-  props: ["title", "date", "author", "category", "description"],
+  props: ["title", "date", "author", "category", "description","image"],
   setup(_, { emit }) {
     const editBlog = () => {
       emit("edit-blog");

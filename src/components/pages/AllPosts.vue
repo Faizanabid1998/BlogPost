@@ -1,19 +1,16 @@
 <template>
-  <div class="w-[1440px] h-auto relative backdrop-blur-md">
-    <div
-      class="w-[1440px] h-auto flex flex-col items-center py-5 px-72 gap-5 absolute bg-neutral-100"
-    >
-      <div
-        class="flex flex-col items-center px-3 pt-5 pb-12 bg-white w-[840px] h-[1542px]"
-      >
+  <div class="bg-neutral-200">
+    <div class="flex flex-col items-center justify center w-full h-screen absolute bg-neutral-200">
+      <div class="bg-white sm:w-[840px] w-[340px] sm:h-[1214px] h-full overflow-y-auto scrollbar-hidden sm:px-3 px-5 pt-5 sm:pb-12 pb-12">
         <div
           id="header"
-          class="flex flex-row items-center justify-between px-5 py-3 w-[820px] h-14"
+          class="flex flex-row sm:items-center items-start justify-between sm:px-5  sm:w-[820px] w-[300px] h-14"
         >
-          <div id="heading" class="font-bold text-3xl leading-10">
+          <div id="heading" class="font-bold text-3xl leading-10 ">
             All Posts
           </div>
           <the-button
+          class="hidden sm:block "
             @click="add"
             btnWidth=" w-44"
             buttonText="Create Blog"
@@ -28,10 +25,20 @@
             :date="blog.date"
             :author="blog.author"
             :category="blog.category"
+            :image="blog.image"
             @edit-blog="handleEdit(blog.id)"
             @delete-blog="handleDelete(blog.id)"
             >>
           </the-blog>
+          <div  class=" sm:hidden absolute bottom-0 py-5  w-[300px] h-20 bg-white flex flex-col items-center">
+            <the-button
+            @click="add"
+            btnWidth=" w-72"
+            buttonText="Create Blog"
+            bgClass="bg-neutral-500"
+          ></the-button>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -80,8 +87,9 @@ export default {
           blogs.value = fetchedBlogs.reverse();
         })
         .catch((error) => {
-          console.error(error);
+          alert("try again later",error)
         });
+    
     });
     return { blogs, handleEdit, handleDelete, add };
   },

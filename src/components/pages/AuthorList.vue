@@ -1,15 +1,20 @@
 <template>
-  <div class="w-[1440px] h-[1024px] relative">
+  <div class="bg-neutral-200">
     <div
-      class="flex flex-col items-center  py-5 px-80 gap-3 bg-neutral-200 w-[1440px] h-[1024px] absolute"
+      class="flex flex-col items-center justify center w-full h-[2578px] sm:h-[1628px] absolute bg-neutral-200"
     >
-      <div class="flex flex-col items-center px-3 pt-5 pb-12 bg-white w-[840px] h-[1542px] ">
-      <div id="header" class="flex flex-row items-center pt-3 pb-5 px-5 gap-3 w-[820px] h-7 ">
-        <div id="heading" class="font-bold  text-3xl leading-10">Blog</div>
-      </div>
+      <div
+        class="bg-white flex flex-col pt-5 pb-12 sm:w-[840px] w-[340px] h-[2538px] sm:h-[1588px] overflow-y-auto scrollbar-hidden min-w-0"
+      >
+        <div
+          id="header"
+          class="flex flex-row items-center pt-3 pb-5 px-5 gap-3 sm:w-[820px] w-[300px]sm:h-7 h-14"
+        >
+          <div id="heading" class="font-bold text-3xl leading-10">Blog</div>
+        </div>
         <div
           title="card"
-          class="container grid grid-cols-2 items-start  gap-20 justify-center w-[820px] h-[428px] self-stretch"
+          class="container sm:grid sm:grid-cols-2 flex flex-col items-center sm:pl-14 justify-center sm:w-[820px] w-80 sm:h-[428px] h-auto self-stretch mx-auto"
         >
           <the-post
             v-for="blog in blogs"
@@ -20,9 +25,7 @@
             class="hover:cursor-pointer"
           >
           </the-post>
-          
         </div>
-        
       </div>
     </div>
   </div>
