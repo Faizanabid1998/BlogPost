@@ -1,13 +1,11 @@
 <template>
-
-    <button
-      :class="`flex flex-row items-center ${btnWidth} h-11 ${bgClass} rounded-[4px] justify-center  px-5 hover:bg-slate-400 ${borderColor} border-2 `"
-    >
-      <div :class="`w-32 h-6 leading-6  font-medium ${textClass}`">
-        {{ buttonText }}
-      </div>
-    </button>
-
+  <button
+    :class="`flex flex-row items-center ${btnWidth} h-11 ${bgClass} rounded-[4px] justify-center  px-5 hover:bg-slate-400 ${borderColor} border-2 `"
+  >
+    <div :class="`w-32 h-6 leading-6  font-medium ${textClass}`">
+      {{ buttonText }}
+    </div>
+  </button>
 </template>
 
 
@@ -36,6 +34,5 @@ export default {
       default: "w-32",
     },
   },
-  
 };
 </script>

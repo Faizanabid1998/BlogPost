@@ -18,6 +18,13 @@
 
 <script>
 export default {
-  props: ["yourText", "heading", "route", "bgClass", "textClass","borderColor"],
+  props: [
+    "yourText",
+    "heading",
+    "route",
+    "bgClass",
+    "textClass",
+    "borderColor",
+  ],
 };
 </script>

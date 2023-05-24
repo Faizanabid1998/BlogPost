@@ -4,7 +4,7 @@
   >
     <img
       class="sm:w-[720px] w-[320px] sm:h-[400px] h-44"
-      src="../../images/Image.svg"
+      :src="image"
       alt=""
     />
     <div class="flex flex-col gap-3 sm:w-[720px] w-[320px]">
@@ -35,7 +35,7 @@
   <script>
 // import { ref } from "vue";
 export default {
-  props: ["title", "date", "author", "category", "description"],
+  props: ["title", "date", "author", "category", "description" ,"image"],
   // setup() {
 
   // },

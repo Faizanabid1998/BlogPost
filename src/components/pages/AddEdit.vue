@@ -1,8 +1,10 @@
 <template>
   <div class="bg-neutral-200">
-    <div class="flex flex-col items-center gap-3 w-full h-[2578px] sm:h-[1628px] ">
+    <div
+      class="flex flex-col items-center gap-3 w-full h-[2578px] sm:h-[1628px]"
+    >
       <div
-        class="bg-white w-[340px] sm:w-[840px]  sm:h-[898px] h-[932px] overflow-y-auto scrollbar-hidden"
+        class="bg-white w-[340px] sm:w-[840px] sm:h-[898px] h-[932px] overflow-y-auto scrollbar-hidden"
       >
         <header
           class="flex flex-row sm:items-center items-start m-auto gap-3 justify-end sm:justify-between sm:px-5 py-3 w-[300px] h-14 sm:w-[820px] sm:h-14"
@@ -11,7 +13,6 @@
             Add Post
           </h1>
         </header>
-
         <form
           class="flex flex-col items-center w-[300px] h-[763px] py-3 sm:w-[820px] sm:h-[576px] mx-auto"
         >
@@ -116,7 +117,7 @@ export default {
     const category = ref("");
     const image = ref("");
 
-    const submitForm = (event) => {
+    const submitForm = async (event) => {
       event.preventDefault();
       if (
         title.value === "" ||
@@ -127,15 +128,13 @@ export default {
       ) {
         event.preventDefault();
         return alert("Some of the fields are not filled correctly!");
-      } else {
-        saveData();
-        (title.value = ""),
-          (description.value = ""),
-          (author.value = ""),
-          (category.value = "");
-        image.value = "";
-        alert("Saved Successfully.");
-        // router.replace("/posts");
+      }
+      try {
+        await saveData();
+        router.replace("/posts");
+      } catch (error) {
+        console.error(error);
+        alert("An error occurred. Please try again later.");
       }
     };
     const handleImageUpload = (event) => {
@@ -170,12 +169,17 @@ export default {
           newBlog
         );
 
-        if (!response.ok) {
-          return;
+        console.log(response.data); // Log the response data
+
+        if (response.status !== 200) {
+          console.error(response.statusText); // Log the error message, if available
+          throw new Error("Request failed");
         }
+
         console.log(response.data);
       } catch (error) {
         console.error(error);
+        throw new Error("Failed to save data");
       }
     }
 
