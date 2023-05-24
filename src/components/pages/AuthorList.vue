@@ -6,10 +6,10 @@
     </div>
     <div v-else class="bg-neutral-200">
       <div
-        class="flex flex-col items-center justify center w-full h-[2578px] sm:h-[1628px] absolute bg-neutral-200"
+        class="flex flex-col items-center justify center w-full h-screen absolute bg-neutral-200"
       >
         <div
-          class="bg-white flex flex-col pt-5 pb-12 sm:w-[840px] w-[340px] h-[2538px] sm:h-[1588px] overflow-y-auto scrollbar-hidden min-w-0"
+          class="bg-white flex flex-col mt-5 mb-5 pt-5 pb-12 sm:w-[840px] w-[340px] h-[2538px] sm:h-[1588px] overflow-y-auto scrollbar-hidden min-w-0"
         >
           <div
             id="header"

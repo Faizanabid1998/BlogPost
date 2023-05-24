@@ -1,13 +1,11 @@
 <template>
   <div class="bg-neutral-200">
-    <div
-      class="flex flex-col items-center gap-3 w-full h-[2578px] sm:h-[1628px]"
-    >
+    <div class="flex flex-col items-center gap-3 w-full h-[2578px] sm:h-screen">
       <div
-        class="bg-white w-[340px] sm:w-[840px] sm:h-[898px] h-[932px] overflow-y-auto scrollbar-hidden"
+        class="flex flex-col items-center mt-5 mb-5 bg-white w-[340px] sm:w-[840px] sm:h-[898px] h-[932px] overflow-y-auto scrollbar-hidden"
       >
         <header
-          class="flex flex-row sm:items-center items-start m-auto gap-3 justify-end sm:justify-between sm:px-5 py-3 w-[300px] h-14 sm:w-[820px] sm:h-14"
+          class="flex flex-row sm:items-center items-start gap-3 justify-end sm:justify-between sm:px-5 py-3 w-[300px] h-14 sm:w-[820px] sm:h-14"
         >
           <h1 class="font-bold text-3xl leading-10 flex-grow text-center">
             Add Post

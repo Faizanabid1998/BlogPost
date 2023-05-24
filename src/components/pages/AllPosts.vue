@@ -10,7 +10,7 @@
         class="flex flex-col items-center justify center w-full h-screen absolute bg-neutral-200"
       >
         <div
-          class="bg-white sm:w-[840px] w-[340px] sm:h-[1214px] h-full overflow-y-auto scrollbar-hidden sm:px-3 px-5 pt-5 sm:pb-12 pb-12"
+          class="flex flex-col items-center mt-5 mb-5 bg-white sm:w-[840px] w-[340px] sm:h-[1214px] h-[2814px] overflow-y-auto scrollbar-hidden sm:px-3 px-5 pt-5 sm:pb-12 pb-12"
         >
           <div
             id="header"

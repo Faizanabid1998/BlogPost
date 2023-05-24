@@ -9,7 +9,7 @@
         class="flex flex-col items-center justify center w-full h-[2578px] sm:h-[1628px] absolute bg-neutral-200"
       >
         <div
-          class="absolute bg-white sm:w-[840px] w-[340px] flex flex-col h-[2538px] sm:h-[1588px] overflow-y-auto scrollbar-hidden px-3 pt-5 pb-12"
+          class="flex flex-col items-center mt-5 mb-5 absolute bg-white sm:w-[840px] w-[340px] h-[2538px] sm:h-[1588px] overflow-y-auto scrollbar-hidden px-3 pt-5 pb-12"
         >
           <div
             class="flex sm:hidden flex-row py-3 mb-5 gap-3 items-center justify-center"
@@ -53,7 +53,7 @@
             ></view-comp>
           </div>
           <div
-            class="flex sm:hidden flex-row py-3 mb-5 gap-3 items-center justify-center"
+            class="flex sm:hidden flex-row py-3 mb-auto gap-3 items-center justify-center"
           >
             <the-button
               buttonText="Share"
