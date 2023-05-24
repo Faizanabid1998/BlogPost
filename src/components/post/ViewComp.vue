@@ -3,7 +3,7 @@
     class="flex flex-col ml-auto items-center justify-center w-[320px] sm:w-full "
   >
     <img
-      class="sm:w-[720px] w-[320px] sm:h-[400px] h-44"
+      class="sm:w-[720px] w-[320px] sm:h-[400px] h-44 border-2 rounded-md"
       :src="image"
       alt=""
     />

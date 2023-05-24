@@ -4,7 +4,7 @@
       id="card"
       class="flex sm:flex-row flex-col items-start justify-between gap-5 sm:w-[760px] w-[300px] sm:h-32 h[394px] pt-3"
     >
-      <img class="sm:w-52 w-72  sm:h-32 h-44" :src="image" alt="" />
+      <img class="sm:w-52 w-72  sm:h-32 h-44 border-2 rounded-md" :src="image" alt="" />
       <div
         id="frame"
         class="flex flex-col justify-between items-start gap-5 sm:w-[418px] w-72 sm:h-32 h-36"
