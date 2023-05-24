@@ -14,6 +14,7 @@ const router = createRouter({
     { path: "/blogs/:id", component: BlogView },
     { path: "/edit/:id", component: EditBlog },
     { path: "/add", component: AddEdit },
+    { path: "/:catchAll(.*)", redirect: "/" },
   ],
 });
 

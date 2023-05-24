@@ -9,7 +9,8 @@ import BackButton from "./components/ui/BackBtn.vue";
 import ThePost from "./components/post/ThePost.vue";
 import ViewComp from "./components/post/ViewComp.vue";
 import TheBlog from "./components/post/TheBlog";
-import SpinLoader from './components/ui/SpinLoader'
+import SpinLoader from "./components/ui/SpinLoader";
+
 const app = createApp(App);
 app.component("the-button", TheButton);
 app.component("nav-bar", NavBar);
@@ -18,7 +19,6 @@ app.component("back-button", BackButton);
 app.component("the-post", ThePost);
 app.component("view-comp", ViewComp);
 app.component("spin-loader", SpinLoader);
-
 app.component("the-blog", TheBlog);
 
 app.use(router);

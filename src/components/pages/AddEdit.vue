@@ -141,7 +141,6 @@ export default {
       reader.onload = () => {
         image.value = reader.result;
       };
-      // Do something with the selected file, such as storing it in a variable or uploading it to the server.
       reader.readAsDataURL(file);
     };
     const exit = () => {

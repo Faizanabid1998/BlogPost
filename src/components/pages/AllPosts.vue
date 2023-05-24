@@ -20,7 +20,7 @@
               All Posts
             </div>
             <the-button
-              class="hidden sm:block"
+              class="hidden sm:flex"
               @click="add"
               btnWidth=" w-44"
               buttonText="Create Blog"

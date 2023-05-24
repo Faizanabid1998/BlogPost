@@ -1,6 +1,6 @@
   <template>
   <div
-    class="flex flex-col ml-auto items-center justify-center w-[320px] sm:w-full "
+    class="flex flex-col ml-auto items-center justify-center w-[320px] sm:w-full"
   >
     <img
       class="sm:w-[720px] w-[320px] sm:h-[400px] h-44 border-2 rounded-md"
@@ -33,11 +33,7 @@
   </div>
 </template>
   <script>
-// import { ref } from "vue";
 export default {
-  props: ["title", "date", "author", "category", "description" ,"image"],
-  // setup() {
-
-  // },
+  props: ["title", "date", "author", "category", "description", "image"],
 };
 </script>
