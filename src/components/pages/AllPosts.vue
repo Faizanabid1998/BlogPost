@@ -40,17 +40,17 @@
               @delete-blog="handleDelete(blog.id)"
               >>
             </the-blog>
-            <div
-              class="sm:hidden absolute bottom-0 py-5 w-[300px] h-20 bg-white flex flex-col items-center"
-            >
-              <the-button
-                @click="add"
-                btnWidth=" w-72"
-                buttonText="Create Blog"
-                bgClass="bg-neutral-500"
-              ></the-button>
-            </div>
           </div>
+        </div>
+        <div
+          class="sm:hidden absolute bottom-0 py-5 w-full h-20 bg-white flex flex-col items-center justify-center"
+        >
+          <the-button
+            @click="add"
+            btnWidth=" w-72"
+            buttonText="Create Blog"
+            bgClass="bg-neutral-500"
+          ></the-button>
         </div>
       </div>
     </div>

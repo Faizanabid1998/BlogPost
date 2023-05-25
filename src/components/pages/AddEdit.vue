@@ -1,8 +1,8 @@
 <template>
   <div class="bg-neutral-200">
-    <div class="flex flex-col items-center gap-3 w-full h-[2578px] sm:h-screen">
+    <div class="flex flex-col items-center gap-3 w-full h-screen sm:h-screen">
       <div
-        class="flex flex-col items-center mt-5 mb-5 bg-white w-[340px] sm:w-[840px] sm:h-[898px] h-[932px] overflow-y-auto scrollbar-hidden"
+        class="flex flex-col items-center mt-5 mb-5 bg-white w-[340px] sm:w-[840px] sm:h-[898px] h-full overflow-y-auto scrollbar-hidden"
       >
         <header
           class="flex flex-row sm:items-center items-start gap-3 justify-end sm:justify-between sm:px-5 py-3 w-[300px] h-14 sm:w-[820px] sm:h-14"
@@ -58,7 +58,7 @@
             >
               <h1 class="font-normal text-xl leading-6">Category</h1>
               <input
-                class="py-3 px-5 gap-3 w-[300px] h-11box-border bg-white border border-gray-300 rounded-md"
+                class="py-3 px-5 gap-3 w-[300px] h-11 box-border bg-white border border-gray-300 rounded-md"
                 type="text"
                 placeholder="Enter your Category here"
                 v-model.trim="category"
@@ -76,20 +76,22 @@
             ></textarea>
           </div>
           <div
-            class="sm:w-[820px] w-[300px] h-11 flex flex-row justify-between items-start gap-7 sm:px-24 mt-5 absolute sm:relative top-[712px] sm:top-auto"
+            class="sm:w-[820px] w-[300px] h-11 flex flex-row justify-between items-start gap-7 sm:px-24 mt-5 absolute sm:relative bottom-2 sm:top-auto"
           >
             <div>
               <the-button
                 @click="exit"
                 buttonText="Cancel"
-                bgClass="bg-neutral-500"
+                bgClass="bg-white"
+                textClass="text-neutral-500"
+                borderColor="border-neutral-500"
               ></the-button>
             </div>
             <div>
               <the-button
                 buttonText="Save"
-                textClass="text-neutral-500"
-                bgClass="bg-white"
+                textClass="text-white"
+                bgClass="bg-neutral-500"
                 borderColor="border-neutral-500"
                 @click="submitForm"
               ></the-button>

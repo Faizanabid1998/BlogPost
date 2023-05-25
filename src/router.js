@@ -5,6 +5,7 @@ import BlogView from "./components/pages/BlogView.vue";
 import AddEdit from "./components/pages/AddEdit.vue";
 import EditBlog from "./components/pages/EditBlog.vue";
 import WelcomePage from "./components/pages/WelcomePage"
+import NotFound from "./components/pages/NotFound.vue"
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -14,7 +15,7 @@ const router = createRouter({
     { path: "/blogs/:id", component: BlogView },
     { path: "/edit/:id", component: EditBlog },
     { path: "/add", component: AddEdit },
-    { path: "/:catchAll(.*)", redirect: "/" },
+    { path: "/:catchAll(.*)", component: NotFound },
   ],
 });
 
