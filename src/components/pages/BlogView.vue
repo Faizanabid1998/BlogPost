@@ -53,7 +53,7 @@
             ></view-comp>
           </div>
           <div
-            class="flex sm:hidden flex-row py-3 mb-auto gap-3 items-center justify-center"
+            class="flex sm:hidden flex-row py-3 mb-auto gap-3 items-center justify-center absolute bottom-0"
           >
             <the-button
               buttonText="Share"

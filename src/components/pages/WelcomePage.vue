@@ -4,7 +4,9 @@
       <h2 class="flex text-2xl font-bold mb-6 justify-center items-center">
         Welcome to Blogs App
       </h2>
-      <div class="flex justify-center sm:space-x-4 flex-col sm:flex-row items-center space-y-5 sm:space-y-0">
+      <div
+        class="flex justify-center sm:space-x-4 flex-col sm:flex-row items-center space-y-5 sm:space-y-0"
+      >
         <button
           @click="management"
           class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-48"
