@@ -7,18 +7,24 @@
       <div
         class="flex justify-center sm:space-x-4 flex-col sm:flex-row items-center space-y-5 sm:space-y-0"
       >
-        <button
-          @click="management"
-          class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-48"
-        >
-          Management Section
-        </button>
-        <button
-          @click="blogs"
-          class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-48"
-        >
-          All Blogs
-        </button>
+      <div>
+              <the-button
+                buttonText="Management"
+                bgClass="bg-neutral-500"
+                textClass="text-white"
+                borderColor="border-neutral-500"
+                @click="management"
+              ></the-button>
+            </div>
+            <div>
+              <the-button
+                buttonText="Blogs"
+                textClass="text-neutral-500"
+                bgClass="bg-white"
+                borderColor="border-neutral-500"
+                @click="blogs"
+              ></the-button>
+            </div>
       </div>
     </div>
   </div>

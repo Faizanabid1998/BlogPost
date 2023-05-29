@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "@/assets/main.css";
+import store from './auth';
 import router from "./router";
 import TheButton from "./components/ui/TheButton.vue";
 import NavBar from "./components/ui/NavBar";
@@ -22,4 +23,5 @@ app.component("spin-loader", SpinLoader);
 app.component("the-blog", TheBlog);
 
 app.use(router);
+app.use(store)
 app.mount("#app");

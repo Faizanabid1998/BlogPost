@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div v-if="isLoggedIn">
     <div v-if="loading">
       Loading...
       <spin-loader></spin-loader>
     </div>
+  
 
     <div v-else class="bg-neutral-200">
       <div
@@ -52,19 +53,23 @@
             bgClass="bg-neutral-500"
           ></the-button>
         </div>
+        
       </div>
     </div>
   </div>
 </template>
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted,computed } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex"
 export default {
   setup() {
     const blogs = ref([]);
     const router = useRouter();
     const loading = ref(false);
+    const store = useStore();
+    const isLoggedIn = computed(() => !!store.state.token);
     const add = () => {
       router.replace("/add");
     };
@@ -87,6 +92,11 @@ export default {
         });
     };
     onMounted(() => {
+      if (!isLoggedIn.value) {
+        // If not logged in, redirect the user to the login page
+        router.replace("/auth");
+        return;
+      }
       loading.value = true;
       axios
         .get("https://blog-app-8cfe3-default-rtdb.firebaseio.com/blogs.json")
@@ -105,7 +115,7 @@ export default {
           loading.value = false;
         });
     });
-    return { blogs, handleEdit, handleDelete, add, loading };
+    return { blogs, handleEdit, handleDelete, add, loading,isLoggedIn };
   },
 };
 </script>

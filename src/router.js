@@ -6,6 +6,7 @@ import AddEdit from "./components/pages/AddEdit.vue";
 import EditBlog from "./components/pages/EditBlog.vue";
 import WelcomePage from "./components/pages/WelcomePage"
 import NotFound from "./components/pages/NotFound.vue"
+import UserAuth from "./components/pages/UserAuth.vue"
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -16,6 +17,7 @@ const router = createRouter({
     { path: "/edit/:id", component: EditBlog },
     { path: "/add", component: AddEdit },
     { path: "/:catchAll(.*)", component: NotFound },
+    {path:"/auth",component:UserAuth}
   ],
 });
 

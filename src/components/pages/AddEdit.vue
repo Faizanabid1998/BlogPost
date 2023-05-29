@@ -104,9 +104,10 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref,computed,onMounted } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex"
 
 export default {
   setup() {
@@ -116,6 +117,8 @@ export default {
     const author = ref("");
     const category = ref("");
     const image = ref("");
+    const store = useStore();
+    const isLoggedIn = computed(() => !!store.state.token);
 
     const submitForm = async (event) => {
       event.preventDefault();
@@ -181,6 +184,13 @@ export default {
         throw new Error("Failed to save data");
       }
     }
+    onMounted(() => {
+      if (!isLoggedIn.value) {
+        // If not logged in, redirect the user to the login page
+        router.replace("/auth");
+        return;
+      }
+    });
 
     return {
       title,
@@ -192,6 +202,7 @@ export default {
       exit,
       image,
       handleImageUpload,
+      isLoggedIn
     };
   },
 };
